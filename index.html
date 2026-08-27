@@ -4,186 +4,60 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#788b6f">
-<title>Mein Morgen</title>
+<title>Der frühe Vogel …</title>
 <style>
 :root{--g:#788b6f;--soft:#e8eee4;--bg:#f7f8f5;--card:#fff;--text:#263026;--muted:#667064;--line:#dce3d9}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-main{max-width:760px;margin:auto;padding:18px 14px 40px}.hero{padding:10px 4px 18px}.hero h1{font-size:30px;margin:0 0 4px}.hero p{margin:0;color:var(--muted)}
-nav{display:flex;gap:8px;overflow:auto;margin-bottom:14px}nav button{min-height:44px;padding:9px 13px;border:1px solid var(--line);border-radius:14px;background:#fff;font-weight:700;white-space:nowrap}nav button.active{background:var(--soft);border-color:var(--g)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:12px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{background:var(--bg);border-radius:14px;padding:11px;text-align:center}.stat b{font-size:22px}.stat span{display:block;font-size:12px;color:var(--muted)}
-.bar{height:10px;background:#e2e7df;border-radius:20px;overflow:hidden;margin-top:12px}.fill{height:100%;background:var(--g);width:0;transition:.2s}
-.checkrow{display:flex;gap:12px;align-items:center;padding:8px 0}.check{width:23px;height:23px;accent-color:var(--g)}
-.success{background:var(--soft);border:1px solid #cbd7c6;border-radius:15px;padding:13px;text-align:center;font-weight:700;margin-top:10px}
-.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.day{min-height:58px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:6px;font-size:12px}.day.done{background:var(--soft);border-color:var(--g)}
-.meal{border-left:4px solid var(--g);padding-left:12px;margin:10px 0;line-height:1.45}.meal b{display:block;margin-bottom:3px}.muted{font-size:14px;color:var(--muted);line-height:1.5}
-select{min-height:44px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:8px 12px;font-size:15px}.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-.exercisegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.exercise{border:1px solid var(--line);border-radius:16px;padding:12px}.visual{height:110px;background:var(--soft);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:40px}.exercise h3{margin:9px 0 4px}.exercise p{margin:0;color:var(--muted);font-size:13px;line-height:1.4}.hidden{display:none!important}.meal summary{cursor:pointer;list-style:none}.meal summary::-webkit-details-marker{display:none}.meal summary:after{content:'＋';float:right}.meal[open] summary:after{content:'−'}.note{background:var(--bg);padding:12px;border-radius:14px;font-size:13px;color:var(--muted);line-height:1.45}
-@media(max-width:430px){.days{grid-template-columns:repeat(4,1fr)}.exercisegrid{grid-template-columns:1fr}.hero h1{font-size:27px}}
+main{max-width:760px;margin:auto;padding:18px 14px 48px}.hero{padding:12px 4px 18px}.hero h1{font-size:31px;margin:0 0 5px}.hero p{margin:0;color:var(--muted);font-size:17px}
+nav{display:flex;gap:8px;overflow:auto;margin-bottom:14px}nav button{min-height:46px;padding:9px 14px;border:1px solid var(--line);border-radius:15px;background:#fff;font-weight:750;white-space:nowrap;color:#2670d9}nav button.active{background:var(--soft);border-color:var(--g)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;margin-bottom:13px}h2{font-size:25px;margin:0 0 15px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat{background:var(--bg);border-radius:15px;padding:13px 7px;text-align:center}.stat b{font-size:26px}.stat span{display:block;font-size:13px;color:var(--muted)}
+.bar{height:10px;background:#e2e7df;border-radius:20px;overflow:hidden;margin-top:13px}.fill{height:100%;background:var(--g);width:0;transition:.25s}
+.checkrow{display:flex;gap:12px;align-items:center;padding:7px 0;font-size:18px}.check{width:25px;height:25px;accent-color:var(--g)}
+.success{background:var(--soft);border:1px solid #cbd7c6;border-radius:15px;padding:13px;text-align:center;font-weight:750;margin:9px 0}
+.note,.muted{color:var(--muted);line-height:1.5}.note{background:var(--bg);padding:12px;border-radius:14px;font-size:13px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}select{min-height:45px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:8px 12px;font-size:15px;flex:1}
+.daygrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.day{min-height:66px;border:1px solid var(--line);border-radius:13px;background:#fff;padding:8px;font-size:13px;text-align:left}.day.done{background:var(--soft);border-color:var(--g)}.day strong{display:block;font-size:15px}
+.meal{border-left:4px solid var(--g);padding:11px 12px;margin:10px 0;background:#fbfcfa;border-radius:0 13px 13px 0}.meal summary{cursor:pointer;font-weight:750;list-style:none}.meal summary::-webkit-details-marker{display:none}.meal summary:after{content:'＋';float:right}.meal[open] summary:after{content:'−'}.recipe{margin-top:9px;color:var(--muted);font-size:14px;line-height:1.5}.recipe b{color:var(--text)}
+.exercisegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.exercise{border:1px solid var(--line);border-radius:16px;padding:13px}.visual{height:92px;background:var(--soft);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:39px}.exercise h3{margin:9px 0 4px}.exercise p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}.hidden{display:none!important}.tag{display:inline-block;background:var(--soft);border-radius:999px;padding:5px 9px;font-size:12px;font-weight:700;margin-bottom:8px}
+@media(max-width:430px){.hero h1{font-size:28px}.exercisegrid{grid-template-columns:1fr}.stats{gap:6px}.stat b{font-size:23px}}
 </style>
 </head>
-<body>
-<main>
-<div class="hero"><h1>Mein Morgen 🌿</h1><p>Deine persönliche 4‑Wochen-Routine.</p></div>
-<nav>
-<button class="active" data-view="today">☀️ Heute</button>
-<button data-view="plan">📅 28 Tage</button><button data-view="training">💪 Training</button>
-<button data-view="food">🥗 Ernährung</button>
-<button data-view="ex">🧘 Übungen</button>
-</nav>
-
-<section id="today">
-<div class="card"><h2>Dein Fortschritt</h2><div class="stats">
-<div class="stat"><b id="done">0</b><span>Trainingstage</span></div>
-<div class="stat"><b>28</b><span>Gesamttage</span></div>
-<div class="stat"><b id="pct">0%</b><span>geschafft</span></div>
-</div><div class="bar"><div id="fill" class="fill"></div></div></div>
-<div class="card"><h2>Heute</h2><div class="checkrow"><input id="todayCheck" class="check" type="checkbox"><label for="todayCheck"><b>Training erledigt ✓</b></label></div>
-<div id="success" class="success hidden">🎉 Heute geschafft! ❤️</div>
-<div class="note">Schulterschonend: keine Liegestütze, Planks oder Stützpositionen. Bei Schmerzen Übung abbrechen.</div></div>
-<div class="card"><h2>🥦 Ernährung</h2><p class="muted">Zu jeder Hauptmahlzeit viel Gemüse oder Salat plus eine gute Proteinquelle. Ballaststoffreiche Kohlenhydrate bewusst wählen.</p></div>
-</section>
-
-<section id="training" class="hidden">
-<div class="card"><h2>💪 Dein Training</h2><p class="muted">Jetzt mit den genauen Wiederholungen und Haltezeiten für jeden Tag.</p>
-<div class="controls"><select id="tw"></select><select id="td"></select></div><div id="trainingDetail"></div></div>
-</section>
-<section id="plan" class="hidden"><div class="card"><h2>28 Tage</h2><p class="muted">Tippe einen Tag an, um ihn abzuhaken.</p><div id="days" class="days"></div></div></section>
-
-<section id="food" class="hidden">
-<div class="card"><h2>🥗 Dein Ernährungsplan</h2><p class="muted">Tippe auf eine Mahlzeit – dann öffnet sich das passende Rezept mit Zutaten und Zubereitung.</p>
-<div class="controls"><select id="foodDay"></select><select id="week"><option value="1">Einkauf Woche 1</option><option value="2">Einkauf Woche 2</option><option value="3">Einkauf Woche 3</option><option value="4">Einkauf Woche 4</option></select></div>
-<div id="meals"></div></div>
-<div class="card"><h2>🛒 Einkaufsliste</h2><p id="shop" class="muted"></p></div>
-<div class="card"><p class="note">Allgemeiner Ernährungsplan, keine individuelle medizinische Beratung. Bei Medikamenten oder individuellen Blutzuckerzielen bitte ärztlich/ernährungsmedizinisch abstimmen.</p></div>
-</section>
-
-<section id="ex" class="hidden"><div class="card"><h2>🧘 Übungsbibliothek</h2><p class="muted">Kurze Hinweise für eine saubere, schulterschonende Ausführung.</p><div id="exercisegrid" class="exercisegrid"></div></div></section>
+<body><main>
+<div class="hero"><h1>Der frühe Vogel … 🌿</h1><p>Deine persönliche 4‑Wochen-Routine.</p></div>
+<nav><button class="active" data-view="today">☀️ Heute</button><button data-view="plan">📅 28 Tage</button><button data-view="training">💪 Training</button><button data-view="food">🥗 Ernährung</button><button data-view="ex">🧘 Übungen</button></nav>
+<section id="today"><div class="card"><h2>Dein Fortschritt</h2><div class="stats"><div class="stat"><b id="done">0</b><span>Trainingstage</span></div><div class="stat"><b>28</b><span>Gesamttage</span></div><div class="stat"><b id="pct">0%</b><span>geschafft</span></div></div><div class="bar"><div id="fill" class="fill"></div></div></div>
+<div class="card"><h2>Heute</h2><div class="checkrow"><input id="todayCheck" class="check" type="checkbox"><label for="todayCheck"><b>Training erledigt ✓</b></label></div><div id="success" class="success hidden">🎉 Heute geschafft! Weiter so! ❤️</div><div class="note">Schulterschonend: keine Liegestütze, Planks oder Stützpositionen. Bei Schmerzen bitte abbrechen.</div></div>
+<div class="card"><h2>🌱 Heute im Fokus</h2><p class="muted">Viel Gemüse oder Salat zu den Hauptmahlzeiten, dazu eine gute Proteinquelle. Ballaststoffreiche Kohlenhydrate bewusst wählen und ausreichend trinken.</p></div></section>
+<section id="plan" class="hidden"><div class="card"><h2>📅 Deine 28 Tage</h2><p class="muted">Tippe einen Tag an, um ihn abzuhaken.</p><div id="days" class="daygrid"></div></div></section>
+<section id="training" class="hidden"><div class="card"><h2>💪 Dein Training</h2><p class="muted">Jeder Tag zeigt dir genau, was du machst – inklusive Wiederholungen und Haltezeiten.</p><div class="controls"><select id="tw"></select><select id="td"></select></div><div id="trainingDetail"></div></div></section>
+<section id="food" class="hidden"><div class="card"><h2>🥗 Dein Ernährungsplan</h2><p class="muted">Tippe auf eine Mahlzeit. Dann erscheinen Zutaten und ein einfaches Rezept.</p><div class="controls"><select id="foodDay"></select></div><div id="meals"></div></div><div class="card"><h2>🛒 Einkauf</h2><p class="muted">Gemüse: Brokkoli, Zucchini, Paprika, Gurke, Tomaten, Spinat, Salat, Karotten, Aubergine, grüne Bohnen. Protein: Skyr/Joghurt, Eier, Feta, Lachs, Hähnchen oder Tofu, Linsen, Kichererbsen, Bohnen. Basics: Haferflocken, Quinoa, Vollkornbrot, Naturreis, Nüsse, Leinsamen, Chia, Olivenöl.</p></div></section>
+<section id="ex" class="hidden"><div class="card"><h2>🧘 Übungsbibliothek</h2><p class="muted">Alle Übungen sind bewusst schulterschonend ausgewählt.</p><div id="exercisegrid" class="exercisegrid"></div></div></section>
 </main>
-
 <script>
-const KEY="mein-morgen-progress-v4";
-let checks=JSON.parse(localStorage.getItem(KEY)||"{}");
-const dayNames=["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"];
-
-const training=[
-["Kraft","Kniebeugen 2×12 · Rückwärtsschritte 2×8 je Seite · Glute Bridge 2×12 · Knieheben 2×20 · Dead Bug 2×8 je Seite · Einbeinstand 2×20 Sek."],
-["Mobilität","Bauchatmung 2 Min. · Wirbelsäule 10× · Beckenkippen 10× · Hüftkreisen 8× je Seite · Sprunggelenke 10× je Seite · Nacken 5× je Richtung · Gehen 2 Min."],
-["Kraft","Kniebeugen 2×12 · Rückwärtsschritte 2×8 je Seite · Glute Bridge 2×15 · Knieheben 2×20 · Dead Bug 2×8 je Seite · Wall Sit 2×20 Sek."],
-["Mobilität","Roll-down 6–8× · Beckenkippen 12× · Hüftbeuger 30 Sek./Seite · Waden 30 Sek./Seite · Brustkorb 6×/Seite · Ausschütteln 1 Min."],
-["Kraft","Kniebeugen 2×15 · Rückwärtsschritte 2×10 je Seite · Glute Bridge 2×15 · Dead Bug 2×10 je Seite · Knieheben 2×24 · Wall Sit 2×20–25 Sek."],
-["Mobility + Balance","Ganzkörper-Mobility 5 Min. · Einbeinstand 2×20 Sek./Seite · Fersen-/Zehengang 1 Min. · Gehen 3 Min."],
-["Pause","Spaziergang optional · Erholung"]];
-
-const weekMultiplier=[
-["2×12","2×8 je Seite","2×12","2×20","2×8 je Seite","2×20 Sek."],
-["3×12","2×10 je Seite","3×15","2×20","2×10 je Seite","2×30 Sek."],
-["3×15","3×8 je Seite","3×15","3×20","3×10 je Seite","3×30 Sek."],
-["4×12","4×8 je Seite","4×15","4×20","4×8 je Seite","3×40 Sek."]
+const KEY='frueher-vogel-progress-v1';let checks=JSON.parse(localStorage.getItem(KEY)||'{}');
+const names=['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag','Sonntag'];
+const workouts=[
+{type:'Kraft',items:[['Kniebeugen','2 × 12'],['Rückwärtsschritte','2 × 8 je Seite'],['Glute Bridge','2 × 12'],['Knieheben im Stand','2 × 20'],['Dead Bug','2 × 8 je Seite'],['Einbeinstand','2 × 20 Sek.']]},
+{type:'Mobilität',items:[['Bauchatmung','2 Min.'],['Wirbelsäulen-Rotation','10 × je Seite'],['Beckenkippen','10 ×'],['Hüftkreisen','8 × je Seite'],['Sprunggelenke','10 × je Seite'],['Nacken sanft bewegen','5 × je Richtung'],['Lockeres Gehen','2 Min.']]},
+{type:'Kraft',items:[['Kniebeugen','2 × 12'],['Rückwärtsschritte','2 × 8 je Seite'],['Glute Bridge','2 × 15'],['Knieheben im Stand','2 × 20'],['Dead Bug','2 × 8 je Seite'],['Wall Sit','2 × 20 Sek.']]},
+{type:'Mobilität',items:[['Roll-down','6–8 ×'],['Beckenkippen','12 ×'],['Hüftbeuger-Dehnung','30 Sek. je Seite'],['Waden-Dehnung','30 Sek. je Seite'],['Brustkorb-Rotation','6 × je Seite'],['Ausschütteln','1 Min.']]},
+{type:'Kraft',items:[['Kniebeugen','2 × 15'],['Rückwärtsschritte','2 × 10 je Seite'],['Glute Bridge','2 × 15'],['Dead Bug','2 × 10 je Seite'],['Knieheben im Stand','2 × 24'],['Wall Sit','2 × 20–25 Sek.']]},
+{type:'Balance + Mobility',items:[['Ganzkörper-Mobility','5 Min.'],['Einbeinstand','2 × 20 Sek. je Seite'],['Fersen-/Zehengang','1 Min.'],['Lockeres Gehen','3 Min.']]},
+{type:'Erholung',items:[['Spaziergang','20–30 Min. optional'],['Sanfte Dehnung','5 Min. optional']]}
 ];
-
-const meals=[
-["Beeren-Skyr-Bowl","Skyr + Beeren + Haferflocken + Walnüsse","Großer Linsensalat mit Gurke, Tomate, Paprika und Feta + Vollkornbrot","Ofengemüse aus Brokkoli, Zucchini und Paprika + Lachs + Kräuterquark"],
-["Apfel-Zimt-Porridge","Haferflocken + Apfel + Zimt + Mandeln + Joghurt","Hähnchen-Gemüse-Bowl mit Quinoa + großem Salat","Tomaten-Linsen-Suppe + gemischter Salat"],
-["Ei-Gemüse-Frühstück","2 Eier + Spinat + Tomate + Vollkornbrot","Kichererbsen-Salat mit Gurke, Paprika, Tomate und Feta","Zucchini-Nudeln mit Pesto + Hähnchen oder Tofu"],
-["Joghurt-Nuss-Bowl","Naturjoghurt + Birne + Leinsamen + Walnüsse","Vollkorn-Wrap mit Hähnchen + viel Salat","Ratatouille mit weißen Bohnen + grüner Salat"],
-["Overnight Oats","Haferflocken + Joghurt + Beeren + Chiasamen","Lachs-Avocado-Salat mit viel Blattgemüse","Puten-Gemüse-Pfanne + Naturreis + Brokkoli"],
-["Hüttenkäse-Frühstück","Hüttenkäse + Gurke + Tomate + Vollkornknäcke","Linsensuppe mit viel Gemüse + Salat","Ofenfeta mit Zucchini, Tomate, Paprika + Kichererbsen"],
-["Griechischer Joghurt","Joghurt + Beeren + Mandeln + Zimt","Bohnen-Feta-Salat + Blattsalat","Hähnchen aus dem Ofen + Brokkoli + kleine Süßkartoffel"],
-["Beeren-Chia-Pudding","Chia + Joghurt + Beeren + Kürbiskerne","Quinoa-Gemüse-Bowl + Tofu + Edamame","Großes Gemüseomelett + gemischter Salat"],
-["Herzhaftes Porridge","Haferflocken + Spinat + Ei + Kräuter","Bulgur-Linsen-Salat mit Tomate und Gurke","Lachs + grüne Bohnen + kleine Kartoffeln"],
-["Skyr mit Pfirsich","Skyr + Pfirsich + Kürbiskerne + Zimt","Hähnchen-Caprese-Salat + Vollkornbrot","Bohnen-Chili mit Paprika, Tomate und Avocado"],
-["Vollkornbrot & Ei","Vollkornbrot + Ei + Avocado + Tomate","Mediterrane Gemüsepfanne + Feta + Kichererbsen","Zucchini-Hack- oder Sojahack-Pfanne + Salat"],
-["Joghurt-Müsli","Ungesüßtes Müsli + Joghurt + Beeren + Nüsse","Lachs-Spinat-Salat","Linsen-Bolognese mit Vollkornnudeln + Rucolasalat"],
-["Quark-Beeren-Creme","Quark/Skyr + Beeren + Leinsamen","Buddha Bowl mit Tofu, Edamame, Rotkohl und Gurke","Ofengemüse + Hähnchen + Tahini-Joghurt"],
-["Omelett mediterran","Omelett mit Tomate, Paprika, Spinat und Feta","Weiße-Bohnen-Salat + Ei oder Fisch","Gemüse-Curry + Kichererbsen + kleine Reisportion"],
-["Hafer-Apfel-Bowl","Warme Haferflocken + Apfel + Zimt + Nüsse","Puten-Salat-Bowl + Avocado + Gurke + Tomate","Forelle + Ofengemüse + grüner Salat"],
-["Skyr & Beeren","Skyr + Himbeeren + Chia + Mandeln","Linsen-Dal mit Spinat + Gurken-Joghurt","Gefüllte Paprika mit Hack oder Linsen + Salat"],
-["Ei & Vollkorn","Rührei + Spinat + Vollkornbrot + Tomate","Quinoa-Salat + Feta + Kichererbsen + viel Gemüse","Hähnchen-Gemüse-Spieße + großer Salat"],
-["Joghurt mit Nüssen","Naturjoghurt + Apfel + Walnüsse + Zimt","Tomaten-Mozzarella-Salat + Bohnen + Vollkornbrot","Lachs-Spinat-Pfanne + Brokkoli"],
-["Chia-Beeren-Bowl","Chia + Skyr + Beeren + Kürbiskerne","Hähnchen-Gemüse-Suppe + Vollkornbrot + Salat","Auberginen-Tomaten-Pfanne + Feta + Linsen"],
-["Hüttenkäse-Bowl","Hüttenkäse + Beeren + Nüsse","Bohnen-Mais-Salat + Avocado + Tomate + Ei","Puten-Gemüse-Wok + kleine Portion Vollkornreis"],
-["Porridge mit Birne","Haferflocken + Birne + Zimt + Mandeln","Lachs-Bowl + Gurke + Spinat + Quinoa","Brokkoli-Kichererbsen-Auflauf + Salat"],
-["Ei-Frühstück","Eier + Gemüse + Vollkornbrot","Linsensalat + Feta + Kräuter + Blattsalat","Hähnchen + Ratatouille"],
-["Skyr-Apfel-Bowl","Skyr + Apfel + Leinsamen + Walnüsse","Tofu-Gemüse-Bowl + Edamame","Fischfilet + Brokkoli + kleine Kartoffelportion"],
-["Joghurt-Beeren-Bowl","Joghurt + Beeren + Chia + Nüsse","Mediterraner Kichererbsen-Salat + Feta","Linsen-Bolognese + Vollkornnudeln + Salat"],
-["Herzhaftes Ei-Frühstück","2 Eier + Avocado + Tomate + Vollkornbrot","Hähnchen-Quinoa-Salat + viel Gemüse","Ofengemüse + Feta + weiße Bohnen"],
-["Overnight Oats","Haferflocken + Joghurt + Beeren + Samen","Bohnen-Chili + grüner Salat","Lachs + Spinat + kleine Kartoffeln"],
-["Quark & Beeren","Quark/Skyr + Beeren + Walnüsse","Vollkorn-Wrap + Tofu oder Hähnchen + viel Gemüse","Gemüseomelett + großer gemischter Salat"],
-["Sonntags-Porridge","Haferflocken + Apfel + Zimt + Nüsse","Ofengemüse-Bowl + Kichererbsen + Feta","Hähnchen oder Tofu + Brokkoli + Pilze + kleine Vollkornreisportion"]];
-
-const recipeInfo={
-"Beeren-Skyr-Bowl":"150–200 g Skyr, 1 Handvoll Beeren, 2 EL Haferflocken, 1 EL Walnüsse. Alles in einer Schale verrühren.",
-"Apfel-Zimt-Porridge":"40 g Haferflocken, 1 kleiner Apfel, 150 ml Milch/Sojadrink, Zimt, 1 EL Mandeln. Haferflocken kurz köcheln, Apfel und Zimt dazugeben, mit Mandeln toppen.",
-"Ei-Gemüse-Frühstück":"2 Eier, 1 Handvoll Spinat, 1 Tomate, 1 Scheibe Vollkornbrot. Gemüse kurz anbraten, Eier dazugeben und stocken lassen.",
-"Joghurt-Nuss-Bowl":"200 g Naturjoghurt, ½–1 Birne, 1 EL Leinsamen, 1 EL Walnüsse. Birne würfeln und alles mischen.",
-"Overnight Oats":"40 g Haferflocken, 150 g Joghurt, Beeren, 1 TL Chia. Am Vorabend mischen, kalt stellen und morgens genießen.",
-"Hüttenkäse-Frühstück":"150 g Hüttenkäse, ½ Gurke, 1 Tomate, 2 Vollkornknäcke. Gemüse schneiden und mit Hüttenkäse servieren.",
-"Griechischer Joghurt":"200 g Naturjoghurt, Beeren, 1 EL Mandeln, Zimt. Alles in einer Schale anrichten.",
-"Beeren-Chia-Pudding":"2 EL Chia, 150 g Joghurt, Beeren, 1 EL Kürbiskerne. Mischen, quellen lassen und toppen.",
-"Herzhaftes Porridge":"40 g Haferflocken, Spinat, 1 Ei, Kräuter. Porridge kochen, Spinat unterheben und Ei daraufgeben.",
-"Skyr mit Pfirsich":"200 g Skyr, 1 kleiner Pfirsich, 1 EL Kürbiskerne, Zimt. Pfirsich würfeln und alles mischen.",
-"Vollkornbrot & Ei":"1–2 Scheiben Vollkornbrot, 1 Ei, ¼ Avocado, Tomate. Ei zubereiten und Brot belegen.",
-"Joghurt-Müsli":"200 g Naturjoghurt, 30 g ungesüßtes Müsli, Beeren, 1 EL Nüsse. Alles vermischen.",
-"Quark-Beeren-Creme":"150–200 g Quark/Skyr, Beeren, 1 EL Leinsamen. Cremig rühren und toppen.",
-"Omelett mediterran":"2 Eier, ½ Paprika, 1 Tomate, Spinat, 30 g Feta. Gemüse braten, Eier dazu und stocken lassen.",
-"Hafer-Apfel-Bowl":"40 g Haferflocken, 1 Apfel, Zimt, 1 EL Nüsse. Warm zubereiten und mit Apfel/Nüssen toppen.",
-"Skyr & Beeren":"200 g Skyr, Himbeeren, 1 TL Chia, 1 EL Mandeln. Alles anrichten.",
-"Ei & Vollkorn":"2 Eier, Spinat, Vollkornbrot, Tomate. Als Rührei zubereiten und servieren.",
-"Joghurt mit Nüssen":"200 g Joghurt, ½ Apfel, 1 EL Walnüsse, Zimt. Apfel würfeln und mischen.",
-"Chia-Beeren-Bowl":"2 EL Chia, 150 g Skyr, Beeren, Kürbiskerne. Verrühren, quellen lassen und toppen.",
-"Hüttenkäse-Bowl":"150 g Hüttenkäse, Beeren, Nüsse. Gemeinsam anrichten.",
-"Porridge mit Birne":"40 g Haferflocken, ½–1 Birne, Zimt, 1 EL Mandeln. Kochen und toppen.",
-"Ei-Frühstück":"2 Eier, Gemüse nach Wahl, 1 Scheibe Vollkornbrot. Eier mit viel Gemüse zubereiten.",
-"Skyr-Apfel-Bowl":"200 g Skyr, ½–1 Apfel, 1 EL Leinsamen, 1 EL Walnüsse. Alles mischen.",
-"Joghurt-Beeren-Bowl":"200 g Joghurt, Beeren, 1 TL Chia, 1 EL Nüsse. Alles mischen.",
-"Herzhaftes Ei-Frühstück":"2 Eier, ¼ Avocado, Tomate, Vollkornbrot. Eier zubereiten und dazu servieren.",
-"Quark & Beeren":"150–200 g Quark/Skyr, Beeren, 1 EL Walnüsse. Cremig rühren und toppen.",
-"Sonntags-Porridge":"40 g Haferflocken, 1 Apfel, Zimt, 1 EL Nüsse. Kochen, Apfel/Zimt dazu, Nüsse darüber."
-};
-
-function genericRecipe(text){
- let ingredients="viel Gemüse/Salat + 120–150 g Proteinquelle + kleine Portion Vollkorn-Kohlenhydrate + 1 EL Olivenöl";
- let method="Gemüse reichlich vorbereiten, Proteinquelle garen und alles mit Öl, Zitrone oder Kräutern abschmecken.";
- if(text.toLowerCase().includes("suppe")) method="Gemüse anbraten, Brühe und Linsen/Bohnen dazugeben und weich köcheln.";
- if(text.toLowerCase().includes("salat")) method="Gemüse klein schneiden, Proteinquelle ergänzen und mit Öl, Zitrone und Kräutern anmachen.";
- if(text.toLowerCase().includes("ofengemüse")) method="Gemüse mit 1 EL Olivenöl würzen und bei 200 °C ca. 20–25 Min. backen; Proteinquelle dazu garen.";
- if(text.toLowerCase().includes("bowl")) method="Gemüse, Proteinquelle und kleine Portion Quinoa/Naturreis in einer Schüssel anrichten.";
- return ingredients+"|"+method;
-}
-function recipe(text){return recipeInfo[text]||genericRecipe(text).replace("|","|");}
-
-function renderMeals(){
- const a=meals[Number(foodDay.value)-1], names=[["Frühstück",a[0]],["Mittagessen",a[1]],["Abendessen",a[2]]];
- mealsEl.innerHTML=names.map(x=>{
-  const r=recipe(x[1]).split("|");
-  return `<details class="meal"><summary><b>${x[0]}</b> – ${x[1]}</summary><div style="margin-top:10px"><b>Zutaten:</b><p class="muted">${r[0]}</p><b>Zubereitung:</b><p class="muted">${r[1]}</p></div></details>`;
- }).join("");
-}
-
-function renderTraining(){
- const w=Number(tw.value), d=Number(td.value), base=training[d];
- let text=base[1];
- if(base[0]==="Kraft"){
-   const sets=weekMultiplier[w-1];
-   const names=["Kniebeugen","Rückwärtsschritte","Glute Bridge","Knieheben","Dead Bug","Wall Sit"];
-   text=names.map((n,i)=>n+" "+sets[i]).join(" · ");
- }
- trainingDetail.innerHTML=`<div class="card" style="background:var(--soft);border:0"><h3 style="margin:0 0 8px">${base[0]}</h3><p class="muted">${text}</p></div><div class="note">💚 Langsam und sauber. Nur im schmerzfreien Bereich. Keine Liegestütze, Planks oder Stützpositionen.</div>`;
-}
-
-function save(){localStorage.setItem(KEY,JSON.stringify(checks))}
-function update(){const n=Object.values(checks).filter(Boolean).length,p=Math.round(n/28*100);done.textContent=n;pct.textContent=p+"%";fill.style.width=p+"%";todayCheck.checked=!!checks[1];success.classList.toggle("hidden",!checks[1])}
-function renderDays(){days.innerHTML="";for(let i=1;i<=28;i++){const b=document.createElement("button");b.className="day"+(checks[i]?" done":"");b.innerHTML="<b>Tag "+i+"</b><br>"+(checks[i]?"✓ geschafft":"○ offen");b.onclick=()=>{checks[i]=!checks[i];save();renderDays();update()};days.appendChild(b)}}
-
-document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll("main section").forEach(s=>s.classList.add("hidden"));document.getElementById(b.dataset.view).classList.remove("hidden")});
-for(let i=1;i<=28;i++){let o=document.createElement("option");o.value=i;o.textContent="Tag "+i;foodDay.appendChild(o)}
-for(let i=1;i<=4;i++){let o=document.createElement("option");o.value=i;o.textContent="Woche "+i;tw.appendChild(o)}
-dayNames.forEach((d,i)=>{let o=document.createElement("option");o.value=i;o.textContent=d;td.appendChild(o)})
-foodDay.onchange=renderMeals;tw.onchange=renderTraining;td.onchange=renderTraining;
-todayCheck.onchange=()=>{checks[1]=todayCheck.checked;save();update();renderDays()};
-week.onchange=()=>shop.textContent=["Blattsalat, Gurke, Tomaten, Paprika, Brokkoli, Zucchini, Spinat, Karotten, Beeren, Äpfel; Skyr/Joghurt, Eier, Feta, Lachs, Hähnchen/Tofu; Linsen, Kichererbsen, Bohnen, Haferflocken, Quinoa, Vollkornbrot, Naturreis.","Brokkoli, Blumenkohl, Zucchini, Paprika, Tomaten, Gurke, Blattsalat, Spinat, Aubergine, Beeren, Äpfel; Skyr, Joghurt, Eier, Feta, Fisch, Hähnchen/Tofu; Linsen, Bohnen, Kichererbsen, Bulgur, Vollkornnudeln; Nüsse, Samen, Avocado.","Brokkoli, Paprika, Zucchini, Tomaten, Gurke, Rotkohl, Karotten, Spinat, Salate, Pilze; Beeren und Äpfel; Skyr/Quark, Eier, Feta, Lachs, Hähnchen/Tofu; Linsen, Bohnen, Kichererbsen, Quinoa, Vollkornreis; Nüsse und Samen.","Brokkoli, Zucchini, Paprika, Tomaten, Gurke, Aubergine, Spinat, Salat, grüne Bohnen, Pilze; Beeren, Äpfel; Skyr/Joghurt, Eier, Fisch, Hähnchen/Tofu, Feta; Linsen, Kichererbsen, Bohnen, Haferflocken, Vollkornbrot, Naturreis; Nüsse, Samen, Olivenöl."][Number(week.value)-1];
-
-renderMeals();renderTraining();renderDays();update();shop.textContent="Blattsalat, Gurke, Tomaten, Paprika, Brokkoli, Zucchini, Spinat, Karotten, Beeren, Äpfel; Skyr/Joghurt, Eier, Feta, Lachs, Hähnchen/Tofu; Linsen, Kichererbsen, Bohnen, Haferflocken, Quinoa, Vollkornbrot, Naturreis; Nüsse, Leinsamen, Chia, Olivenöl.";
-</script>
-</body>
-</html>
+const exercises=[['🪑','Kniebeuge','Füße hüftbreit, Brust aufrecht, Knie folgen den Zehen.','12–15 Wiederholungen'],['🍑','Glute Bridge','Rückenlage, Füße aufstellen, Becken kontrolliert heben und senken.','12–15 Wiederholungen'],['🚶','Rückwärtsschritt','Einen Fuß langsam nach hinten setzen, vorderes Bein stabil halten.','8–10 je Seite'],['🐞','Dead Bug','Rückenlage, Bauch sanft aktiv. Arm/Bein diagonal langsam bewegen.','8–10 je Seite'],['🧍','Einbeinstand','Aufrecht stehen, bei Bedarf leicht festhalten.','20–30 Sek. je Seite'],['🧱','Wall Sit','Rücken an die Wand, nur so tief gehen, wie es angenehm ist.','20–40 Sek.'],['🌬️','Bauchatmung','Durch die Nase ruhig einatmen, Bauch und Flanken weiten sich.','2–3 Minuten'],['🔄','Wirbelsäulen-Rotation','Im Stand oder Sitz sanft drehen, ohne Schwung und ohne Schmerz.','8–10 je Seite']];
+const menu=[
+['Beeren-Skyr-Bowl','Skyr, Beeren, 3 EL Haferflocken, Walnüsse.','Alles in eine Schale geben und mit Zimt toppen.'],['Apfel-Zimt-Porridge','50 g Haferflocken, 1 Apfel, Milch/Drink, Zimt, Mandeln.','Haferflocken mit Flüssigkeit erwärmen, Apfelwürfel und Zimt dazugeben, mit Mandeln toppen.'],['Ei-Gemüse-Frühstück','2 Eier, Spinat, Tomate, 1 Scheibe Vollkornbrot.','Gemüse kurz anbraten, Eier dazugeben und stocken lassen. Mit Brot servieren.'],['Joghurt-Nuss-Bowl','Naturjoghurt, Birne, Leinsamen, Walnüsse.','Birne würfeln, alles mischen und sofort genießen.'],['Overnight Oats','50 g Haferflocken, Joghurt, Beeren, 1 TL Chia.','Abends mischen und über Nacht kalt stellen.'],['Hüttenkäse-Frühstück','Hüttenkäse, Gurke, Tomate, Vollkornknäcke.','Gemüse schneiden und mit Hüttenkäse auf Knäcke servieren.'],['Großer Linsensalat','Linsen, Gurke, Tomate, Paprika, Feta, Olivenöl, Kräuter.','Alles würfeln, mischen und mit Öl, Zitrone und Kräutern abschmecken.'],['Quinoa-Gemüse-Bowl','Quinoa, Brokkoli, Paprika, Gurke, Tofu oder Hähnchen.','Quinoa kochen. Gemüse garen, Proteinquelle anbraten und alles in einer Bowl anrichten.'],['Lachs-Avocado-Salat','Lachs, Blattsalat, Gurke, Tomate, Avocado.','Lachs braten oder backen. Salat mischen und Lachs daraufgeben.'],['Kichererbsen-Feta-Salat','Kichererbsen, Gurke, Tomate, Paprika, Feta.','Alles mischen und mit Zitronensaft, Olivenöl und Kräutern würzen.'],['Ofengemüse mit Lachs','Brokkoli, Zucchini, Paprika, Lachs, Kräuterquark.','Gemüse mit Öl würzen und bei 200 °C ca. 20 Min. backen. Lachs die letzten 12–15 Min. dazugeben.'],['Tomaten-Linsen-Suppe','Linsen, Dosentomaten, Karotte, Zwiebel, Gemüsebrühe.','Gemüse anrösten, alles mit Brühe aufkochen und ca. 20 Min. köcheln lassen.'],['Zucchini-Pesto-Pfanne','Zucchini, Pesto, Tofu oder Hähnchen.','Zucchini anbraten, Proteinquelle dazugeben und am Ende Pesto unterheben.'],['Ratatouille mit Bohnen','Zucchini, Aubergine, Paprika, Tomaten, weiße Bohnen.','Gemüse würfeln, anbraten und mit Tomaten 20 Min. schmoren. Bohnen unterheben.'],['Bohnen-Chili','Kidneybohnen, Paprika, Tomaten, Mais, Avocado.','Alles außer Avocado 15–20 Min. köcheln. Mit Avocado servieren.'],['Linsen-Bolognese','Linsen, Tomaten, Karotte, Zwiebel, Vollkornnudeln.','Gemüse anbraten, Linsen und Tomaten dazugeben und 20 Min. köcheln. Mit Nudeln servieren.'],['Buddha Bowl','Tofu, Edamame, Rotkohl, Gurke, Karotte, Quinoa.','Quinoa kochen, Tofu braten und alle Zutaten nebeneinander anrichten.'],['Gemüse-Curry','Brokkoli, Paprika, Spinat, Kichererbsen, Kokosmilch, Curry.','Gemüse anbraten, Kichererbsen und etwas Kokosmilch dazugeben, 10–15 Min. köcheln.'],['Gefüllte Paprika','Paprika, Linsen oder Hack/Sojahack, Tomaten, Kräuter.','Paprika füllen und bei 190 °C ca. 25–30 Min. backen.'],['Linsen-Dal','Linsen, Spinat, Tomaten, Curry, Joghurt.','Linsen mit Tomaten und Gewürzen weich kochen, Spinat unterheben. Mit Joghurt servieren.']];
+const mealsByDay=[];for(let d=0;d<28;d++)mealsByDay.push([menu[(d*3)%menu.length][0],menu[(d*3+6)%menu.length][0],menu[(d*3+10)%menu.length][0]]);
+function recipe(name){return menu.find(x=>x[0]===name)||menu[0]}
+function update(){let done=Object.keys(checks).filter(k=>k.startsWith('day')&&checks[k]).length;document.getElementById('done').textContent=done;document.getElementById('pct').textContent=Math.round(done/28*100)+'%';document.getElementById('fill').style.width=(done/28*100)+'%';document.getElementById('todayCheck').checked=!!checks.today;document.getElementById('success').classList.toggle('hidden',!checks.today)}
+function save(){localStorage.setItem(KEY,JSON.stringify(checks));update();renderDays()}
+document.querySelectorAll('nav button').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('main>section').forEach(s=>s.classList.add('hidden'));document.getElementById(btn.dataset.view).classList.remove('hidden')});
+document.getElementById('todayCheck').onchange=e=>{checks.today=e.target.checked;save()};
+function renderDays(){const box=document.getElementById('days');box.innerHTML='';for(let i=0;i<28;i++){let el=document.createElement('button');el.className='day'+(checks['day'+i]?' done':'');el.innerHTML='<strong>Tag '+(i+1)+'</strong>'+(checks['day'+i]?'✓ geschafft':'Tippen zum Abhaken');el.onclick=()=>{checks['day'+i]=!checks['day'+i];save()};box.appendChild(el)}}
+function renderTraining(){const w=document.getElementById('tw'),d=document.getElementById('td');for(let i=1;i<=4;i++)w.innerHTML+=`<option value="${i}">Woche ${i}</option>`;for(let i=0;i<7;i++)d.innerHTML+=`<option value="${i}">${names[i]}</option>`;function draw(){let week=+w.value,day=+d.value,b=workouts[day],items=b.items.map(x=>x.slice());if(week>1&&b.type==='Kraft')items=items.map((x,j)=>[x[0],j===5?(week===2?'2 × 30 Sek.':week===3?'3 × 30 Sek.':'3 × 40 Sek.'):(week===2?x[1].replace('2 ×','3 ×'):week===3?x[1].replace(/2 ×|3 ×/,'3 ×'):x[1].replace(/2 ×|3 ×/,'4 ×'))]);document.getElementById('trainingDetail').innerHTML='<span class="tag">Woche '+week+' · '+b.type+'</span>'+items.map(x=>`<div class="meal"><b>${x[0]}</b><div class="muted">${x[1]}</div></div>`).join('')}w.onchange=draw;d.onchange=draw;draw()}
+function renderFood(){const s=document.getElementById('foodDay');for(let i=0;i<28;i++)s.innerHTML+=`<option value="${i}">Tag ${i+1}</option>`;function draw(){let a=mealsByDay[+s.value],lab=['Frühstück','Mittagessen','Abendessen'];document.getElementById('meals').innerHTML=a.map((n,i)=>{let r=recipe(n);return `<details class="meal"><summary>${lab[i]}: ${n}</summary><div class="recipe"><b>Zutaten:</b> ${r[1]}<br><br><b>Zubereitung:</b> ${r[2]}</div></details>`}).join('')}s.onchange=draw;draw()}
+function renderExercises(){document.getElementById('exercisegrid').innerHTML=exercises.map(x=>`<div class="exercise"><div class="visual">${x[0]}</div><h3>${x[1]}</h3><p>${x[2]}</p><p><b>${x[3]}</b></p></div>`).join('')}
+renderDays();renderTraining();renderFood();renderExercises();update();
+</script></body></html>
